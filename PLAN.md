@@ -131,3 +131,13 @@ Target size: ~1,500–2,500 lines of code (data excluded).
   embedding-model comparison) goes under "Future improvements" in the README.
 - Work happens on branch `claude/zealous-pasteur-t1nni3`; I push after each milestone.
   No PR is opened unless you ask.
+
+## 8. Build notes (added during implementation)
+
+- Chunk = whole document (docs are 107-131 words), so there is no splitting step.
+- Hugging Face was unreachable (HTTP 403 from the sandbox proxy), so MiniLM could not be downloaded;
+  all results use TF-IDF. MiniLM is implemented but untested here. torch was not installed.
+- The corpus has 43 docs: 40 verified + 3 harmless `user-upload` notes, to test that the trust
+  scorer is not just "block every upload".
+- Added a one-detector-only ablation to the evaluation (small, and informative).
+- Detector patterns/thresholds were tuned on the same synthetic documents (README says so).
