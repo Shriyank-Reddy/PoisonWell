@@ -461,5 +461,31 @@
     "instruction": 0.55,
     "anomaly": 0.65,
     "trust": 0.1
+  },
+  "diagnostic_no_canaries": {
+    "per_attack": {
+      "injection": {
+        "n": 7,
+        "asr_off": 0.8571,
+        "asr_on": 0.0
+      },
+      "misinformation": {
+        "n": 7,
+        "asr_off": 0.8571,
+        "asr_on": 0.0
+      },
+      "hijack": {
+        "n": 6,
+        "asr_off": 0.8333,
+        "asr_on": 0.0
+      }
+    },
+    "overall": {
+      "asr_off": 0.85,
+      "asr_on": 0.0
+    },
+    "false_positive_rate": 0.0,
+    "poison_chunks_blocked": 26,
+    "poison_chunks_retrieved": 26
   }
 }

@@ -2,7 +2,9 @@
 
     python -m poisonwell.evaluate            # full run (writes results/results.json + chart)
 """
+import dataclasses
 import json
+import re
 import sys
 
 from poisonwell import config
@@ -15,12 +17,22 @@ def rate(hits: int, total: int) -> float:
     return round(hits / total, 4) if total else 0.0
 
 
+def strip_canaries(docs):
+    """Diagnostic copy of poison docs with the CANARY-xxxx tokens removed from their text."""
+    return [dataclasses.replace(d, text=re.sub(r"\s*\[?(ref )?CANARY-\w+\]?", "", d.text)) for d in docs]
+
+
 def run_eval(embedder_name: str | None = None, per_group: int | None = None,
-             ablation: bool = True) -> dict:
-    """per_group limits how many questions run per attack / normal group (small subsets for tests)."""
+             ablation: bool = True, attack_folder: str = "attack_docs",
+             questions_file: str = "eval_questions.json", no_canaries: bool = False) -> dict:
+    """per_group limits how many questions run per attack / normal group (small subsets for tests).
+    attack_folder / questions_file pick the attack set: the original (tuned) one or the held-out one.
+    no_canaries=True is a diagnostic: poison docs enter the store without their canary tokens
+    (success is then judged by the target claim only)."""
+    hide = strip_canaries if no_canaries else (lambda docs: docs)
     name = embedder_name or config.EMBEDDER
     clean = load_docs("clean_docs")
-    questions = load_questions()
+    questions = load_questions(questions_file)
 
     def group(key):
         qs = [q for q in questions if q["attack"] == key]
@@ -52,16 +64,17 @@ def run_eval(embedder_name: str | None = None, per_group: int | None = None,
 
     # Attack questions: the store holds the clean docs + that one attack's poison docs.
     for attack in ATTACKS:
-        poison = load_attack_docs(attack)
-        pipe = RAGPipeline(clean + poison, embedder_name=name)
+        poison = load_attack_docs(attack, attack_folder)
+        pipe = RAGPipeline(clean + hide(poison), embedder_name=name)
         for q in group(attack):
             run(pipe, q, poison)
 
     # Normal questions: the store holds clean docs + ALL poison docs (checks for collateral damage).
-    all_poison = load_attack_docs()
-    pipe = RAGPipeline(clean + all_poison, embedder_name=name)
-    for q in group(None):
-        run(pipe, q, all_poison)
+    all_poison = load_attack_docs(None, attack_folder)
+    if group(None):
+        pipe = RAGPipeline(clean + hide(all_poison), embedder_name=name)
+        for q in group(None):
+            run(pipe, q, all_poison)
 
     per_attack = {}
     for attack in ATTACKS:
@@ -85,17 +98,17 @@ def run_eval(embedder_name: str | None = None, per_group: int | None = None,
         "records": records,
     }
     if ablation:
-        results["ablation_asr_on"] = run_ablation(clean, group, name)
+        results["ablation_asr_on"] = run_ablation(clean, group, name, attack_folder)
     return results
 
 
-def run_ablation(clean, group, embedder_name) -> dict:
+def run_ablation(clean, group, embedder_name, attack_folder="attack_docs") -> dict:
     """Overall ASR when only ONE detector is active. Shows what each defense contributes."""
     out = {}
     for only in ("instruction", "anomaly", "trust"):
         wins, total = 0, 0
         for attack in ATTACKS:
-            poison = load_attack_docs(attack)
+            poison = load_attack_docs(attack, attack_folder)
             pipe = RAGPipeline(clean + poison, embedder_name=embedder_name)
             pipe._defense = DefenseLayer(pipe.store, only=only)
             for q in group(attack):
@@ -131,9 +144,15 @@ def save_chart(results: dict, path) -> None:
     plt.close(fig)
 
 
-def print_summary(r: dict) -> None:
+def diagnostic(no_canaries_run: dict) -> dict:
+    """Keep only the headline numbers of a canary-stripped run."""
+    keep = ("per_attack", "overall", "false_positive_rate", "poison_chunks_blocked", "poison_chunks_retrieved")
+    return {k: no_canaries_run[k] for k in keep}
+
+
+def print_summary(r: dict, title: str = "PoisonWell results") -> None:
     pct = lambda v: f"{v * 100:5.1f}%"
-    print(f"\nPoisonWell results  (embedder={r['embedder']}, llm={r['llm']}, top_k={r['top_k']})")
+    print(f"\n{title}  (embedder={r['embedder']}, llm={r['llm']}, top_k={r['top_k']})")
     print(f"{'Attack':<16}{'Qs':>4}{'ASR off':>10}{'ASR on':>10}")
     for name, a in r["per_attack"].items():
         print(f"{name:<16}{a['n']:>4}{pct(a['asr_off']):>10}{pct(a['asr_on']):>10}")
@@ -142,20 +161,37 @@ def print_summary(r: dict) -> None:
     print(f"\nFalse positive rate (clean chunks blocked): {pct(r['false_positive_rate'])} "
           f"({r['clean_chunks_blocked']}/{r['clean_chunks_retrieved']})")
     print(f"Poison chunks blocked: {r['poison_chunks_blocked']}/{r['poison_chunks_retrieved']}")
-    print(f"Clean-answer accuracy: off {pct(r['clean_accuracy_off'])}, on {pct(r['clean_accuracy_on'])} "
-          f"({r['n_normal_questions']} normal questions)")
+    if r["n_normal_questions"]:
+        print(f"Clean-answer accuracy: off {pct(r['clean_accuracy_off'])}, on {pct(r['clean_accuracy_on'])} "
+              f"({r['n_normal_questions']} normal questions)")
+    if "diagnostic_no_canaries" in r:
+        d = r["diagnostic_no_canaries"]
+        print(f"DIAGNOSTIC, canary tokens removed from doc text: overall ASR off {pct(d['overall']['asr_off']).strip()}"
+              f" -> on {pct(d['overall']['asr_on']).strip()}, poison blocked "
+              f"{d['poison_chunks_blocked']}/{d['poison_chunks_retrieved']}, FPR {pct(d['false_positive_rate']).strip()}")
     if "ablation_asr_on" in r:
         print("ASR with a single detector only: " +
               ", ".join(f"{k}={pct(v).strip()}" for k, v in r["ablation_asr_on"].items()))
 
 
 def main() -> None:
-    results = run_eval()
     config.RESULTS_DIR.mkdir(exist_ok=True)
-    (config.RESULTS_DIR / "results.json").write_text(json.dumps(results, indent=2) + "\n")
-    save_chart(results, config.RESULTS_DIR / "asr_chart.png")
-    print_summary(results)
-    print(f"\nSaved {config.RESULTS_DIR / 'results.json'} and asr_chart.png")
+    # 1) Known attacks: the ones the detectors were tuned on.
+    known = run_eval()
+    (config.RESULTS_DIR / "results.json").write_text(json.dumps(known, indent=2) + "\n")
+    save_chart(known, config.RESULTS_DIR / "asr_chart.png")
+    known["diagnostic_no_canaries"] = diagnostic(no_canaries_run=run_eval(ablation=False, no_canaries=True))
+    (config.RESULTS_DIR / "results.json").write_text(json.dumps(known, indent=2) + "\n")
+    print_summary(known, "KNOWN attacks (tuned)")
+    # 2) Held-out attacks: written after the detectors were frozen. Reported separately.
+    held = run_eval(attack_folder="heldout_docs", questions_file="heldout_questions.json")
+    (config.RESULTS_DIR / "heldout_results.json").write_text(json.dumps(held, indent=2) + "\n")
+    save_chart(held, config.RESULTS_DIR / "asr_chart_heldout.png")
+    held["diagnostic_no_canaries"] = diagnostic(run_eval(
+        ablation=False, no_canaries=True, attack_folder="heldout_docs", questions_file="heldout_questions.json"))
+    (config.RESULTS_DIR / "heldout_results.json").write_text(json.dumps(held, indent=2) + "\n")
+    print_summary(held, "HELD-OUT attacks (unseen)")
+    print(f"\nSaved results/results.json, heldout_results.json and both charts")
 
 
 if __name__ == "__main__":

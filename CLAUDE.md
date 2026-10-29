@@ -10,7 +10,7 @@ Optional: sentence-transformers (MiniLM), Ollama.
 - Run app: `streamlit run app/streamlit_app.py`
 - Run tests: `python -m pytest -q`
 - Run eval: `python -m poisonwell.evaluate` (rewrites `results/`; update README numbers afterwards)
-- Regenerate data: `python scripts/make_data.py && python scripts/make_attacks.py`
+- Regenerate data: `python scripts/make_data.py && python scripts/make_attacks.py && python scripts/make_heldout.py`
 
 ## File map
 - `poisonwell/config.py` settings (embedder, top_k, thresholds)
@@ -24,3 +24,4 @@ Optional: sentence-transformers (MiniLM), Ollama.
 3. Synthetic data only. No real people, companies, emails, or domains (use `*.example`).
 4. Detectors must never read the ground-truth labels (`attack`, `canary`, `target_claim`).
 5. README numbers must come from a real eval run.
+6. Held-out set (`data/heldout_*`) is evaluated separately and must never be used to tune detectors. If you change a detector, say so, and write a fresh held-out set.

@@ -141,3 +141,7 @@ Target size: ~1,500–2,500 lines of code (data excluded).
   scorer is not just "block every upload".
 - Added a one-detector-only ablation to the evaluation (small, and informative).
 - Detector patterns/thresholds were tuned on the same synthetic documents (README says so).
+- M7: detectors/thresholds frozen; 12 held-out poison docs + 12 questions in `data/heldout_*`, evaluated
+  separately (`results/heldout_results.json`). The mock's obey-trigger list was widened for this; the original
+  results were re-run and unchanged. A canary-stripped diagnostic exposed that canary digits inflated the
+  trust scorer's conflict check (reported in the README, not fixed).

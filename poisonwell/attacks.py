@@ -16,14 +16,14 @@ ATTACKS = {
 }
 
 
-def load_attack_docs(attack: str | None = None) -> list[Document]:
-    """All poison docs, or only those of one attack type."""
-    docs = load_docs("attack_docs")
+def load_attack_docs(attack: str | None = None, folder: str = "attack_docs") -> list[Document]:
+    """All poison docs, or only those of one attack type. folder="heldout_docs" = the unseen set."""
+    docs = load_docs(folder)
     return [d for d in docs if attack in (None, d.attack)]
 
 
-def load_questions() -> list[dict]:
-    return json.loads((config.DATA_DIR / "eval_questions.json").read_text())
+def load_questions(filename: str = "eval_questions.json") -> list[dict]:
+    return json.loads((config.DATA_DIR / filename).read_text())
 
 
 def attack_succeeded(answer: str, poison_docs: list[Document]) -> bool:

@@ -76,7 +76,20 @@ The data is tiny and synthetic; detector patterns and thresholds were tuned whil
 documents (so the results are optimistic); the MockLLM is far simpler than a real model; the misinformation
 defense only catches conflicting *numbers*. Treat the results as a demonstration of the method, not a benchmark.
 
-## 7. Ten likely interview questions
+## 7. Overfitting and why held-out testing matters
+
+If you tune a defense while looking at the same attacks you then test it on, a great score proves very little:
+you may have fitted the detectors to those exact examples (**overfitting**), like memorising exam answers.
+The honest question is "how does it do on attacks I have not seen?". So in M7 I froze every pattern and
+threshold, then wrote 12 new poison docs with different wording and formats, and reported them separately.
+
+What happened: ASR went 0% (known) -> 16.7% (held-out), and the instruction detector missed all four
+paraphrased injections. A second lesson: a diagnostic run with canary tokens removed showed that digits inside
+the canaries had been inflating the source-trust score, so the realistic held-out ASR is nearer 42%. Held-out
+testing found a bug that the tuned numbers hid. Caveats: 12 questions is small, and once I have looked at the
+held-out results and fix things, that set is no longer "unseen" and I need a fresh one.
+
+## 8. Eleven likely interview questions
 
 1. **What is RAG poisoning?** Inserting malicious documents into the knowledge base a RAG system retrieves from, so the model repeats false facts, leaks data, or follows hidden instructions. It is a form of indirect prompt injection.
 2. **Why is it hard to prevent?** The model sees instructions and data in the same text channel, and retrieved content looks just like trusted content. Anyone who can write to the corpus can influence answers.
@@ -88,3 +101,4 @@ defense only catches conflicting *numbers*. Treat the results as a demonstration
 8. **What are the weaknesses of your results?** Small synthetic data, tuning on the evaluation set, a naive mock model, and no adaptive attacker. 0% ASR is best case. Next step: held-out and adaptive attacks.
 9. **How would an adaptive attacker beat your defenses?** Paraphrase the instruction to avoid regexes, avoid numbers in misinformation, avoid repetition when hijacking, or get a document marked "internal-verified". I would respond with learned classifiers, provenance controls, and signing of trusted content.
 10. **How would you deploy this defense in production?** Put it between retrieval and the LLM as a filter with logging and a review queue, restrict who can write to the corpus, track provenance, and add monitoring such as canary documents. Also separate instructions from data in the prompt and limit what the assistant can do.
+11. **What is overfitting in a security-defense evaluation, and how did you check for it?** Tuning detector rules on the same attacks used to score them makes the score optimistic. I froze the rules, wrote a separate held-out attack set with paraphrases and new formats, and reported it separately: ASR rose from 0% to 16.7%, the regex detector missed every paraphrase, and a diagnostic showed a canary-digit artifact in the trust scorer (realistic ASR about 42%). I would fix the root cause and collect a fresh held-out set, since the old one is now seen.

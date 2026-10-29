@@ -93,6 +93,22 @@ def results_page():
         st.subheader("What does each detector contribute?")
         st.write("Overall ASR when only one detector is active:")
         st.table([{"Detector alone": k, "ASR": f"{v:.0%}"} for k, v in r["ablation_asr_on"].items()])
+    held_path = config.RESULTS_DIR / "heldout_results.json"
+    if held_path.exists():
+        h = json.loads(held_path.read_text())
+        st.subheader("Held-out attacks (unseen)")
+        st.write("Written after the detectors were frozen, with new phrasing and formats. "
+                 "Compare with the tuned numbers above.")
+        st.image(str(config.RESULTS_DIR / "asr_chart_heldout.png"))
+        d = h["diagnostic_no_canaries"]
+        st.table([{"Set": "Known attacks (tuned)", "ASR off": f"{r['overall']['asr_off']:.0%}",
+                   "ASR on": f"{r['overall']['asr_on']:.0%}", "False positive rate": f"{r['false_positive_rate']:.1%}",
+                   "ASR on, canaries removed": f"{r['diagnostic_no_canaries']['overall']['asr_on']:.0%}"},
+                  {"Set": "Held-out attacks (unseen)", "ASR off": f"{h['overall']['asr_off']:.0%}",
+                   "ASR on": f"{h['overall']['asr_on']:.0%}", "False positive rate": f"{h['false_positive_rate']:.1%}",
+                   "ASR on, canaries removed": f"{d['overall']['asr_on']:.0%}"}])
+        st.caption("'Canaries removed' is a diagnostic: the trust scorer's number-conflict check was "
+                   "counting digits inside canary tokens, which flatters the headline held-out result.")
     with st.expander("Per-question details"):
         st.dataframe([{"id": x["id"], "question": x["question"], "attack": x["attack"],
                        "success_off": x.get("success_off"), "success_on": x.get("success_on"),
