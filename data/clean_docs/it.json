@@ -1,0 +1,114 @@
+[
+  {
+    "id": "it-01",
+    "title": "Password Reset Guide",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-04-22",
+    "text": "You can reset your Northwind password yourself at portal.northwind.example/reset. Enter your work email, then confirm your identity with the Northwind Auth app. Passwords must be at least 12 characters long and include upper and lower case letters and a number. Passwords expire every 90 days, and you cannot reuse your last 10 passwords. If your account is locked after five failed attempts, wait fifteen minutes or call the help desk. The IT team will never ask you for your password by email, chat, or phone, so never share it with anyone, including colleagues. If you suspect that someone knows your password, change it immediately and report it to the security team. A password manager is available in the software catalog and is recommended."
+  },
+  {
+    "id": "it-02",
+    "title": "VPN Setup and Troubleshooting",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-05-01",
+    "text": "To work with internal tools from outside the office, connect to the company VPN. Install the NorthwindVPN client from the software catalog, open it, and sign in with your single sign-on account. You will be asked to approve the login with multi-factor authentication. Once the status shows Connected, you can reach internal sites, shared drives, and the code repositories. Connect to the VPN before opening internal tools, and disconnect when you are finished on a shared network. If the connection fails, check your internet connection, restart the client, and try again. If it still fails, make sure your laptop's clock is correct and that the client is up to date. For anything else, contact the help desk on extension 4357 and mention your error message."
+  },
+  {
+    "id": "it-03",
+    "title": "Multi-Factor Authentication",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-06-08",
+    "text": "All Northwind accounts are protected with multi-factor authentication (MFA). During your first three days, install the Northwind Auth app on your phone, scan the QR code shown on the enrollment page, and approve the test request. When you sign in, you will enter your password and approve a prompt in the app. At setup you can create 10 one-time backup codes; store them somewhere safe, such as your password manager. If you lose your phone or get a new one, contact the help desk on extension 4357 to verify your identity and reset your MFA enrollment. Never approve a prompt you did not trigger yourself, because it can mean someone else has your password. Report unexpected prompts to the security team."
+  },
+  {
+    "id": "it-04",
+    "title": "Laptop Requests",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-07-15",
+    "text": "Employees receive a new laptop on their first day and a replacement every 3 years. To request a new or replacement laptop, open the IT portal, choose Hardware, and select a standard model: Model A for everyday work or Model B for development and design. Your manager must approve the request. Approved laptops are normally delivered within 5 business days, and you will be told when to pick yours up at the IT desk or when it will be shipped to your home. Exceptions, such as a faster machine for heavy workloads, need a short business justification. If your laptop is broken, tell the help desk and a loaner will be arranged. Always back up local files and return the old device to IT after the swap."
+  },
+  {
+    "id": "it-05",
+    "title": "Wi-Fi Access",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-08-22",
+    "text": "Northwind offices have two wireless networks. Employees should use Northwind-Corp, which signs you in automatically with your company certificate or your single sign-on account. Visitors use Northwind-Guest, which only provides internet access and cannot reach internal systems. The guest password changes every week and is posted at the reception desk. Never use the guest network for work, and do not share the corporate Wi-Fi settings with visitors. If your laptop cannot join Northwind-Corp, forget the network, reconnect, and sign in again. If that does not help, restart your laptop and check that your certificate has not expired. Persistent problems can be reported to the help desk, who can check coverage in your area of the building."
+  },
+  {
+    "id": "it-06",
+    "title": "Software Installation",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-09-01",
+    "text": "Use the Northwind software catalog to install approved tools such as the browser, chat, office suite, VPN client, and password manager. Most items install with one click and update automatically. If you need software that is not in the catalog, submit a ticket explaining why you need it, how many people will use it, and whether it handles company data. The security team reviews each request, which usually takes up to 10 business days. Never install pirated software or unapproved browser extensions, and do not turn off antivirus or other security tools. Software with licenses is charged to your team's budget, and unused licenses are reclaimed after 90 days. Developers may install open source tools from approved package sources."
+  },
+  {
+    "id": "it-07",
+    "title": "Email and Storage",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-10-08",
+    "text": "Every employee has a 50 GB mailbox. Attachments can be up to 25 MB; for larger files, share a link to the team drive instead of attaching the file. Messages older than two years are archived automatically, but you can still search them from your mailbox. Shared mailboxes, such as support or finance, can be requested through the IT portal by a team lead. Use email signatures with your name, title, and team. Be careful with sensitive information: do not send customer data or passwords by email. If you get close to your storage limit, delete large attachments or move them to your personal folder on the shared drive. Out-of-office replies can be set in your mail settings."
+  },
+  {
+    "id": "it-08",
+    "title": "Printing",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-11-15",
+    "text": "Badge-release printing is available on floors 2 through 5. Add the NW-Print queue to your laptop from the software catalog, send your document to it, and then tap your badge on any printer to release the job. Jobs that are not released within 24 hours are deleted automatically. Color printing is only available on the third floor, and double-sided black and white is the default to save paper. Scanning to your email works the same way: tap your badge, choose Scan, and the file arrives in your inbox. If a printer is out of toner or jammed, check the label on the machine and submit a ticket with the printer name, and facilities will respond the same business day. Please do not print confidential documents and leave them unattended."
+  },
+  {
+    "id": "it-09",
+    "title": "Lost or Stolen Devices",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-12-22",
+    "text": "If your laptop, phone, or badge is lost or stolen, report it within 1 hour. Call the security desk on extension 5555 or email security@northwind.example, and give the device type, where and when it went missing, and whether it holds company data. The security team will lock your accounts, wipe the device remotely, and revoke its certificates. If the device was stolen, file a police report and send the report number to security. A replacement laptop is normally prepared within one business day. Do not wait to see whether the device turns up, because quick action protects customer data. You will not be punished for reporting honestly. Encrypted laptops with strong passwords reduce the risk, so never turn off disk encryption."
+  },
+  {
+    "id": "it-10",
+    "title": "Reporting Phishing",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-01-01",
+    "text": "Phishing emails try to trick you into clicking a link, opening an attachment, or sharing your password. Warning signs include urgent requests, strange sender addresses, spelling mistakes, and links that do not match the company they claim to be from. If you receive a suspicious message, do not click anything. Use the Report Phish button in your mail client, or forward the message to phishing@northwind.example. The security team reviews every report and replies within 1 business day. If you already clicked a link or entered your password, change your password immediately and tell the help desk so they can check your account. Northwind sends simulated phishing tests every week to help everyone practice; there is no penalty for failing a test, only a short refresher."
+  },
+  {
+    "id": "it-11",
+    "title": "Shared Drives",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-02-08",
+    "text": "Teams store documents on NW-Drive. Each team has its own folder, and the folder owner decides who can view or edit it. To get access, ask the owner or submit a request in the IT portal and include the folder name. Sharing files with people outside Northwind is disabled by default; if you need it for a project, ask your manager to approve an exception with an expiry date. Deleted files stay in the trash for 30 days before they are removed permanently. Use clear file names and keep sensitive documents, such as contracts and HR records, in restricted folders. Do not store company files on personal cloud accounts or USB drives. Version history is kept for each file, so you can restore an earlier version if someone makes a mistake."
+  },
+  {
+    "id": "it-12",
+    "title": "Video Conferencing",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-03-15",
+    "text": "Northwind uses NorthwindMeet for video calls. Every employee has a meeting room link that never changes, and meetings can hold up to 200 participants. You can create a meeting from your calendar by adding a video link when you schedule an event. Recordings are saved to your cloud folder and deleted automatically after 90 days, so download any recording you need to keep. Always tell participants when a meeting is being recorded. For in-office meeting rooms, book the room in your calendar and use the touch panel to start the call. If your camera or microphone is not detected, check the permissions in your laptop settings and restart the app. Use headphones in open areas to keep conversations private and the noise down."
+  },
+  {
+    "id": "it-13",
+    "title": "IT Help Desk Hours",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-04-22",
+    "text": "The IT help desk is open from 8 a.m. to 6 p.m., Monday to Friday. You can reach it by phone on extension 4357, by email at helpdesk@northwind.example, or by opening a ticket in the IT portal. Tickets are answered within 4 business hours, and urgent issues, such as being unable to work at all, are handled first. Outside of opening hours, major outages are covered by the on-call engineer, who can be paged through the status page. When you contact the help desk, please include your name, your location, a description of the problem, and any error message or screenshot. The team can help with accounts, hardware, software, printers, and network problems. Feedback after each ticket helps us improve the service."
+  },
+  {
+    "id": "it-14",
+    "title": "Data Backups",
+    "category": "it",
+    "source": "internal-verified",
+    "date": "2024-05-01",
+    "text": "Company laptops are backed up automatically every night to NW-Backup, as long as they are connected to the internet. The backup keeps 30 days of file versions, so you can restore a document as it was a few weeks ago. To restore a file, open the IT portal, choose Backup Restore, and select the file and date. Large restores may take a few hours. Backups only cover your user folders, so do not save work in unusual locations. Important team files should be saved on NW-Drive, which has its own protection and does not depend on your laptop. If your laptop is lost or fails, a new one can be restored from the latest backup within one business day. Backup status is shown in the menu bar icon."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "pr-01",
+    "title": "Lantern Overview",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-06-08",
+    "text": "Lantern is Northwind Labs' analytics dashboard for small and medium businesses. It collects events from your website or app, turns them into charts, and helps you understand how customers use your product. You can build dashboards with drag-and-drop tiles, track funnels, and compare groups of users over time. Lantern also sends weekly email summaries and can alert you when a metric changes suddenly. The product is designed to be quick to set up: add a short code snippet to your site, and data starts to appear within minutes. Teams can share dashboards with colleagues, and viewers do not need a paid seat. Lantern is available in a Starter, Team, and Enterprise plan, and offers a free trial."
+  },
+  {
+    "id": "pr-02",
+    "title": "Lantern Pricing Plans",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-07-15",
+    "text": "Lantern comes in three plans. Starter costs $29 per month per workspace and includes up to three users and basic dashboards. Team costs $99 per month per workspace and adds unlimited users, funnels, scheduled reports, and SAML single sign-on. Enterprise has custom pricing and adds a dedicated support engineer, advanced security reviews, and custom data retention. Paying annually saves 15% compared to monthly billing. All prices are in US dollars and exclude local taxes. You can upgrade or downgrade at any time from the billing page, and changes apply from your next billing date. Non-profit organizations and schools can ask the sales team for a discount. Invoices are available in the billing page and can be sent to a finance email address."
+  },
+  {
+    "id": "pr-03",
+    "title": "Lantern Free Trial",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-08-22",
+    "text": "New customers can try Lantern free for 14 days. The trial includes all Team plan features, and no credit card is required to start. At the end of the 14 days, your workspace switches to a read-only state; you can still view your dashboards and export your data, but new events are not collected until you choose a plan. To keep your data flowing, pick a plan on the billing page before the trial ends. Each company can use the free trial once. If you need more time for an evaluation, such as a security review, contact the sales team, who can sometimes arrange a short extension for qualified companies. Trial workspaces that are not upgraded are deleted after 60 days."
+  },
+  {
+    "id": "pr-04",
+    "title": "Lantern Refund Policy",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-09-01",
+    "text": "If Lantern is not right for you, we will refund your first payment in full when you ask within 30 days of the purchase. This applies to monthly and annual plans. To request a refund, email support@lantern.northwind.example with your workspace name; refunds are processed within five business days and returned to your original payment method. After 30 days, we do not offer refunds for the current billing period, but you can cancel at any time and your plan stays active until the period ends. Annual plans canceled after the first 30 days are not prorated. Refunds are not available for custom Enterprise contracts, which follow the terms of the signed agreement. Taxes are refunded together with the payment."
+  },
+  {
+    "id": "pr-05",
+    "title": "Lantern Data Retention",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-10-08",
+    "text": "Lantern keeps the raw event history for a limited time depending on your plan. Starter workspaces keep 3 months of data, Team workspaces keep 13 months, and Enterprise customers can choose a custom period. Older raw events are deleted automatically, but the daily totals shown in your dashboards are kept so long-term trends remain visible. If you need to keep the raw data for longer, export it regularly using the export feature. When a workspace is closed, all data is deleted within 30 days. Customers can ask for earlier deletion of specific users' data to comply with privacy requests, using the data deletion form in the settings page. Retention changes apply to new data and old data alike."
+  },
+  {
+    "id": "pr-06",
+    "title": "Lantern API Rate Limits",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-11-15",
+    "text": "The Lantern API lets you send events and read reports from your own systems. Each API key can make 100 requests per minute. If you go over the limit, the API returns an HTTP 429 error with a header that tells you how many seconds to wait before trying again. We recommend sending events in batches of up to 500 and adding a short exponential delay when you see a 429 response. Enterprise customers have a higher limit of 1,000 requests per minute. Keep your API keys secret, rotate them regularly in the settings page, and use separate keys for each application. You can see usage per key in the API dashboard, and the sales team can discuss custom limits for high-volume needs."
+  },
+  {
+    "id": "pr-07",
+    "title": "Lantern Data Export",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-12-22",
+    "text": "You can export your Lantern data at any time. Reports and raw events can be downloaded as CSV or JSON files from the Export page. A single export can contain up to 1 million rows; for larger datasets, split the export by date range. Team and Enterprise customers can schedule exports to run daily or weekly and deliver them to cloud storage. Exports include timestamps in UTC, the event name, and all properties you have sent. Files are available for download for 7 days. If an export fails, try a smaller date range and check that your browser allows downloads from the site. Personal data in exports remains subject to your own privacy policy, so store the files securely and share them only with people who need them."
+  },
+  {
+    "id": "pr-08",
+    "title": "Lantern Security and Single Sign-On",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-01-01",
+    "text": "Lantern protects customer data with encryption in transit and AES-256 encryption at rest. Team and Enterprise plans support SAML single sign-on, so employees can use their company identity provider and you can remove access centrally when someone leaves. Two-factor authentication is available for all users and can be required for the whole workspace by an administrator. Northwind Labs has completed an independent SOC 2 Type II audit, and the report is available to Enterprise customers under a confidentiality agreement. Administrators can view an audit log of sign-ins and important changes. Lantern staff never ask for your password. To report a security issue, email security@lantern.northwind.example and the security team will respond promptly."
+  },
+  {
+    "id": "pr-09",
+    "title": "Lantern Uptime and SLA",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-02-08",
+    "text": "Northwind Labs commits to 99.9% monthly uptime for the Lantern dashboard and data collection API. Planned maintenance is announced at least 48 hours in advance on the status page and is not counted as downtime. If uptime falls below the commitment in a calendar month, Team customers can request a service credit of 10% of that month's fee, and Enterprise customers receive the credits defined in their contract. To claim a credit, email support within 30 days of the incident with your workspace name. The status page shows current availability, past incidents, and the cause of each outage. You can subscribe to the status page by email or webhook to be notified the moment something changes."
+  },
+  {
+    "id": "pr-10",
+    "title": "Lantern Supported Browsers and Mobile App",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-03-15",
+    "text": "The Lantern dashboard works in the latest two versions of Chrome, Firefox, Safari, and Edge. Internet Explorer is not supported. For the best experience, keep your browser up to date and enable JavaScript and cookies. Lantern also offers a free mobile app for iOS and Android, where you can view dashboards, receive alerts, and share a chart with colleagues. Creating or editing dashboards is only possible in the web version. The mobile app supports fingerprint and face unlock, and it respects the same sign-in and permission rules as the web version. If a page does not load correctly, clear the browser cache or try a private window before contacting support, and mention your browser and version."
+  },
+  {
+    "id": "pr-11",
+    "title": "Lantern Support Channels",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-04-22",
+    "text": "Lantern customers can contact support by email at support@lantern.northwind.example or through the chat button inside the dashboard. Response times depend on your plan: Starter customers receive a reply within 2 business days, Team customers within 1 business day, and Enterprise customers within 4 hours, at any time of day. Enterprise customers also have a dedicated support engineer and a private chat channel. Before writing, check the help center, which has setup guides, troubleshooting steps, and short videos. When you contact support, include your workspace name, a description of the problem, and screenshots if possible. Feature requests are welcome and are reviewed by the product team every month."
+  },
+  {
+    "id": "pr-12",
+    "title": "Lantern Data Regions",
+    "category": "product",
+    "source": "internal-verified",
+    "date": "2024-05-01",
+    "text": "Lantern stores customer data in one of two regions: the United States or the European Union. You choose the region when you create a workspace, and all events, dashboards, and exports for that workspace stay in that region. A workspace cannot be switched to another region by itself; if you need to move, contact support to request a migration, which copies your data to a new workspace and takes around five business days. EU workspaces are hosted in Frankfurt and follow European data protection rules. Both regions have the same features and prices. Our data processing agreement lists the cloud providers we use, and Enterprise customers can request a list of sub-processors."
+  },
+  {
+    "id": "up-02",
+    "title": "Lantern Dashboard Keyboard Shortcuts",
+    "category": "product",
+    "source": "user-upload",
+    "date": "2024-07-15",
+    "text": "A short list of keyboard shortcuts that make working in Lantern faster. Press G and then D to go to the dashboards page, and G then F to open funnels. Pressing the question mark key opens the shortcut overview. Use the arrow keys to move between tiles when a dashboard is in edit mode, and press Enter to open the tile settings. Pressing E opens the export dialog for the report you are looking at. Hold Shift while dragging a tile to snap it to the grid. These shortcuts work in Chrome, Firefox, Safari, and Edge. If a shortcut does not work, click on an empty area of the page first so that the dashboard has keyboard focus, and then try again."
+  }
+]

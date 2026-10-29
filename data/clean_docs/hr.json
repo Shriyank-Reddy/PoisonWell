@@ -1,0 +1,130 @@
+[
+  {
+    "id": "hr-01",
+    "title": "Vacation and PTO Policy",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-02-08",
+    "text": "Northwind Labs gives every full-time employee 20 days of paid vacation per year. Vacation accrues monthly, so new hires earn it gradually during their first year. Employees may carry over up to 5 unused days into the next calendar year; any days above that limit expire on December 31. To take time off, submit a vacation request in the HR portal. Requests of three or more consecutive days should be submitted at least two weeks in advance, and your manager will approve or decline within two business days. Vacation days are paid at your regular salary. Part-time employees accrue vacation in proportion to their scheduled hours. Unused vacation is paid out when an employee leaves the company, as required by local law."
+  },
+  {
+    "id": "hr-02",
+    "title": "Sick Leave Policy",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-03-15",
+    "text": "Every employee receives 10 paid sick days per year. Sick days can be used when you are ill, when you need to attend a medical appointment, or when you are caring for an immediate family member. Please notify your manager before your shift starts, by message or phone, whenever possible. A doctor's note is required only when you are out for more than three consecutive days. Sick days do not carry over into the next year and are not paid out when you leave. If you run out of sick days because of a serious illness, speak with HR about short-term disability coverage, which is part of the standard health benefits package. Your health information is kept confidential and is shared only with HR."
+  },
+  {
+    "id": "hr-03",
+    "title": "Parental Leave",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-04-22",
+    "text": "Northwind Labs offers 16 weeks of paid parental leave to the primary caregiver of a new child, and 6 weeks of paid leave to the secondary caregiver. This applies to birth, adoption, and foster placement. Leave may begin up to two weeks before the expected date and must be used within 12 months of the child's arrival. You continue to receive full salary and full health benefits while on leave, and your vacation continues to accrue. To start the process, tell your manager and HR at least 30 days in advance when possible, then complete the parental leave form in the HR portal. When you return, you will be offered your previous role or an equivalent one, and a gradual return schedule of four weeks is available on request."
+  },
+  {
+    "id": "hr-04",
+    "title": "Remote Work Policy",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-05-01",
+    "text": "Employees may work remotely up to 3 days per week. Tuesdays and Wednesdays are the core in-office days, when teams are expected to be at their local Northwind office for meetings and collaboration. Remote days should be agreed with your manager and shown on your team calendar. You must be reachable on chat during core hours and keep your video available for scheduled meetings. Work from a secure network, connect to the company VPN when using internal tools, and never leave a company laptop unattended in a public place. Northwind provides a one-time home office stipend of $300 for a chair, monitor, or desk accessories. Fully remote arrangements need written approval from a director and are reviewed once a year."
+  },
+  {
+    "id": "hr-05",
+    "title": "Expense Reimbursement",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-06-08",
+    "text": "Business expenses are reimbursed when they are reasonable, work related, and approved by your manager. Submit your expense report in the finance portal within 30 days of the purchase. A receipt is required for any single expense over $25. While traveling, meals are reimbursed up to $60 per day, and hotels should be booked through the company travel tool whenever possible. Personal items, alcohol, and fines are not reimbursable. Once your manager approves the report, finance pays it in the next payroll cycle, usually within ten days. If a report is rejected, you will receive a short explanation and can resubmit with corrections. Employees who travel often can request a company card from the finance team."
+  },
+  {
+    "id": "hr-06",
+    "title": "Performance Reviews",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-07-15",
+    "text": "Northwind Labs runs performance reviews twice a year, in June and in December. About one week before each review, you complete a short self-assessment describing your main accomplishments, challenges, and learning goals. Your manager then writes feedback and rates your performance on a scale from 1 to 5, and the two of you meet to discuss it. Ratings are calibrated across teams to keep them fair. Goals for the new year are set together in January and revisited at the mid-year review. Reviews are used for growth planning and for promotion and salary decisions, but you should receive informal feedback throughout the year, not only during review season. If you disagree with your rating, you may ask HR for a second review."
+  },
+  {
+    "id": "hr-07",
+    "title": "Code of Conduct",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-08-22",
+    "text": "Northwind Labs expects everyone to treat colleagues, customers, and partners with respect. Harassment, discrimination, bullying, and threats are never acceptable, whether they happen in the office, online, or at company events. Protect company and customer information, avoid conflicts of interest, and report any gift worth more than $50 to your manager. If you see or experience behavior that violates this code, report it to your manager, to HR at hr-help@northwind.example, or through the anonymous ethics line. Reports are investigated promptly and kept as confidential as possible. Retaliation against anyone who reports a concern in good faith is strictly prohibited and is itself a violation of this code. Violations can lead to disciplinary action, up to and including termination."
+  },
+  {
+    "id": "hr-08",
+    "title": "New Hire Onboarding",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-09-01",
+    "text": "Welcome to Northwind Labs. Your first day starts with orientation on Monday at 9 a.m., where you will meet your team and receive your laptop and badge. Each new hire is assigned an onboarding buddy who answers day-to-day questions during the first month. In your first week you will set up your accounts, enroll in multi-factor authentication, and complete the required security awareness training within 7 days. Your manager will share a 30-60-90 day plan with clear goals for your first three months. You will also have short meetings with HR and IT to review benefits and tools. Do not hesitate to ask questions; everyone remembers what it was like to be new. A feedback survey after your first month helps us improve onboarding."
+  },
+  {
+    "id": "hr-09",
+    "title": "Health Benefits",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-10-08",
+    "text": "Northwind Labs offers medical, dental, and vision coverage for employees and their families. New hires must enroll within 30 days of their start date; if you miss the window, you can only change coverage during the annual open enrollment period in November or after a qualifying life event such as marriage or the birth of a child. Coverage begins on the first day of the month after your start date. The company pays 80% of the monthly premium for employees and 60% for dependents. Plan details, network doctors, and claim forms are available in the HR portal. The benefits package also includes an employee assistance program with free confidential counseling sessions, and a wellness stipend of $40 per month for gym or fitness costs."
+  },
+  {
+    "id": "hr-10",
+    "title": "Retirement Savings Plan",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-11-15",
+    "text": "The Northwind Retirement Savings Plan helps you save for the future with pre-tax payroll contributions. Employees become eligible after 90 days of employment and can choose to contribute any percentage of their salary, up to the yearly legal limit. Northwind matches 4% of your salary when you contribute at least that amount, and the match is yours immediately with no vesting period. You can pick from a range of funds, including low-cost index funds and a target-date option that adjusts automatically as you near retirement. You can change your contribution rate at any time in the benefits portal, and changes take effect in the next payroll. If you leave the company, you may roll your balance into a new employer's plan or an individual account."
+  },
+  {
+    "id": "hr-11",
+    "title": "Company Holidays",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-12-22",
+    "text": "Northwind Labs observes 11 paid company holidays each year. They include New Year's Day, Memorial Day, Independence Day, Labor Day, Thanksgiving Day and the day after, and the days between December 24 and December 26. The full calendar for the year is published in the HR portal every November. In addition to these holidays, every employee receives one floating holiday that can be used for a birthday, a religious observance, or any day that matters to you. Floating holidays must be used within the calendar year and do not carry over. If a holiday falls on a weekend, it is usually observed on the nearest weekday. Employees who must work on a holiday, such as support staff on call, receive a replacement day off."
+  },
+  {
+    "id": "hr-12",
+    "title": "Professional Development",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-01-01",
+    "text": "Northwind Labs invests in your growth. Every employee has a learning budget of $1,500 per year that can be used for courses, books, certifications, and conference tickets. To use it, discuss your plan with your manager, then submit the cost as an expense with a short note on how it supports your role. Approved conferences also include travel time and a reasonable travel allowance. Employees are encouraged to spend a few hours each month on learning during work time. If you leave the company within six months of receiving reimbursement for a certification or course, you may be asked to repay the cost. Unused budget does not carry over, so plan early in the year. Teams also run monthly lunch-and-learn talks."
+  },
+  {
+    "id": "hr-13",
+    "title": "Working Hours",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-02-08",
+    "text": "The standard work week at Northwind Labs is 40 hours. We use flexible scheduling, with core hours from 10 a.m. to 3 p.m. in your local time zone, when everyone is expected to be available for meetings and questions. Outside core hours, you may start and finish at times that suit you, as long as your manager agrees and your team's needs are met. Employees paid hourly are classified as non-exempt and must record their time; overtime for these employees must be approved by a manager in advance and is paid at 1.5 times the regular rate. Take a meal break of at least 30 minutes if you work more than six hours. Please avoid sending messages late in the evening unless something is truly urgent."
+  },
+  {
+    "id": "hr-14",
+    "title": "Resignation and Offboarding",
+    "category": "hr",
+    "source": "internal-verified",
+    "date": "2024-03-15",
+    "text": "If you decide to leave Northwind Labs, please give at least two weeks of written notice to your manager and HR. Senior roles may agree on a longer notice period in their contracts. Your manager will plan a handover of your work, and HR will schedule an exit interview, where you can share honest feedback. Return your laptop, badge, and any other company equipment within 3 business days of your last day. IT will disable your accounts at the end of your final day, so save any personal files beforehand. Your final paycheck, including any unused vacation, is paid on your last day. HR will explain how to continue health coverage and how to move your retirement savings. We are always happy to stay in touch with former colleagues."
+  },
+  {
+    "id": "up-01",
+    "title": "Tips for Planning Your Vacation Days",
+    "category": "hr",
+    "source": "user-upload",
+    "date": "2024-06-08",
+    "text": "Here are some tips from my own experience for planning your time off. We get 20 days of vacation a year and can carry over up to 5 days, so I plan my big trip in the summer and keep a few days for long weekends. Book early because managers approve requests in the order they arrive. I put my vacation on the team calendar and set my out-of-office reply the day before I leave. If you want to take a longer break, think about combining it with the company holidays in December, because the office is quiet then anyway. Remember that unused days above the limit expire on December 31, so check your balance in the HR portal around October."
+  },
+  {
+    "id": "up-03",
+    "title": "Setting Up a Comfortable Home Office",
+    "category": "hr",
+    "source": "user-upload",
+    "date": "2024-08-22",
+    "text": "Since we can work remotely up to 3 days per week, it is worth making your home workspace comfortable. The one-time home office stipend of $300 covers a good chair or a monitor, and I spent mine on an adjustable chair. Put your screen at eye level, keep your feet flat on the floor, and take a short walk between meetings. A headset with a microphone makes video calls much clearer, and a plant or a lamp helps a lot with mood. Connect to the VPN when you open internal tools, and keep your work laptop away from shared family devices. On core days, Tuesday and Wednesday, I plan my focused work for the home days."
+  }
+]
