@@ -42,7 +42,7 @@ class MockLLM(LLM):
         picked = []
         for chunk in chunks:
             sentences = split_sentences(chunk.text)
-            best = max(sentences, key=lambda s: (len(q_words & words(s)), len(s)))  # longer wins ties
+            best = max(sentences, key=lambda s: (len(q_words & words(s)), bool(re.search(r"\d", s)), len(s)))  # ties: prefer figures, then longer
             if best not in picked:
                 picked.append(best)
         return " ".join(picked)
